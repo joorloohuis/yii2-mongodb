@@ -129,7 +129,7 @@ class MongoClient extends BaseObject
         if (method_exists($this->client, $method)) {
             return call_user_func_array([$this->client, $method], $args);
         }
-        throw new BadMethodCallException(\MongoDB\Client::class . ' does not implement ' . $method);
+        throw new \BadMethodCallException(\MongoDB\Client::class . ' does not implement ' . $method);
     }
 
 }
