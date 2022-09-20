@@ -81,14 +81,14 @@ class MongoClient extends BaseObject
     /**
      * Connected database
      *
-     * @var MongoDB\Database
+     * @var \MongoDB\Database
      */
     public $database;
 
     /**
      * MongoDB client
      *
-     * @var MongoDB\Client
+     * @var \MongoDB\Client
      */
     protected $client;
 
@@ -108,7 +108,8 @@ class MongoClient extends BaseObject
         if ($this->dsn) {
             $this->db = preg_replace('/(.*\/|\?.*)/', '', $this->dsn);
         } else {
-            $this->dsn = sprintf("mongodb://%s:%s@%s:%s/%s",
+            $this->dsn = sprintf(
+                "mongodb://%s:%s@%s:%s/%s",
                 $this->user,
                 $this->password,
                 $this->host,
@@ -131,5 +132,4 @@ class MongoClient extends BaseObject
         }
         throw new \BadMethodCallException(\MongoDB\Client::class . ' does not implement ' . $method);
     }
-
 }
